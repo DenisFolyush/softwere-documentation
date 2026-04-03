@@ -29,3 +29,10 @@ class SQLDataAccess(IDataAccess):
             raise
         finally:
             session.close()
+
+    def get_all_tickets(self) -> List[Ticket]:
+        session = self.Session()
+        try:
+            return session.query(Ticket).all()
+        finally:
+            session.close()

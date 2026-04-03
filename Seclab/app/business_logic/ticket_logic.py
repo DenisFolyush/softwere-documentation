@@ -26,3 +26,19 @@ class TicketBusinessLogic(IBusinessLogic):
 
         # persist to database
         self._data_access.save_tickets(tickets)
+
+    def get_all(self) -> List[Ticket]:
+        """Return all tickets from persistent storage."""
+        return self._data_access.get_all_tickets()
+
+    def process_rows(self, rows: List[dict]) -> None:
+        """Convert dictionary rows to Ticket objects and persist them."""
+        tickets: List[Ticket] = []
+        for row in rows:
+            t = Ticket(
+                title=row.get("title", ""),
+                description=row.get("description", ""),
+                status=row.get("status", "") or "new",
+            )
+            tickets.append(t)
+        self._data_access.save_tickets(tickets)

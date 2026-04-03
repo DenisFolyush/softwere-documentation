@@ -1,0 +1,16 @@
+{
+  "output_strategy": "file",
+  "output_strategy": "kafka",
+
+  "file": {
+    "path": "output_records.json"
+  },
+  "redis": {
+    "url": "redis://redis:6379",
+    "key": "parking_records"
+  },
+  "kafka": {
+    "bootstrap_servers": "kafka:9092",
+    "topic": "parking_violations"
+  }
+}

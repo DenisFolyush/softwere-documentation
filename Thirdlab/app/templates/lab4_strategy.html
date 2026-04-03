@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lab 4 Strategy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="page-card">
+  <h1>Lab 4 Output Strategy</h1>
+  <p class="description">Змініть спосіб виводу даних для Lab 4 прямо з UI 3-ї лаби.</p>
+  <form method="post" id="strategy-form">
+    <div class="form-row">
+      <label>Strategy</label>
+      <select name="strategy" id="strategy-select">
+        <option value="console" {% if config.strategy == 'console' %}selected{% endif %}>console</option>
+        <option value="file" {% if config.strategy == 'file' %}selected{% endif %}>file</option>
+        <option value="redis" {% if config.strategy == 'redis' %}selected{% endif %}>redis</option>
+        <option value="kafka" {% if config.strategy == 'kafka' %}selected{% endif %}>kafka</option>
+      </select>
+    </div>
+
+    <div class="strategy-group" id="group-file">
+      <h2>File output</h2>
+      <label>File path</label>
+      <input type="text" name="file_path" value="{{ config.file_path }}">
+    </div>
+
+    <div class="strategy-group" id="group-redis">
+      <h2>Redis settings</h2>
+      <label>Redis URL</label>
+      <input type="text" name="redis_url" value="{{ config.redis_url }}">
+      <label>Redis key</label>
+      <input type="text" name="redis_key" value="{{ config.redis_key }}">
+    </div>
+
+    <div class="strategy-group" id="group-kafka">
+      <h2>Kafka settings</h2>
+      <label>Kafka bootstrap servers</label>
+      <input type="text" name="kafka_bootstrap_servers" value="{{ config.kafka_bootstrap_servers }}">
+      <label>Kafka topic</label>
+      <input type="text" name="kafka_topic" value="{{ config.kafka_topic }}">
+    </div>
+
+    <button type="submit">Save strategy</button>
+  </form>
+
+  <section class="output-preview">
+    <h2>Current settings</h2>
+    <p><strong>Active strategy:</strong> {{ config.strategy }}</p>
+    <p><strong>Config file:</strong> {{ config.file_path }}</p>
+    {% if preview.exists %}
+      <div class="preview-card">
+        <h3>File preview</h3>
+        <p>Path: {{ preview.path }}</p>
+        {% if preview.error %}
+          <p class="error">Error reading file: {{ preview.error }}</p>
+        {% else %}
+          <p>Records loaded: {{ preview.count }}</p>
+          <pre>{{ preview.sample | tojson(indent=2) }}</pre>
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="muted">No output file found at <strong>{{ preview.path }}</strong>.</p>
+    {% endif %}
+  </section>
+
+  <p><a href="{{ url_for('index') }}">Back to tickets</a></p>
+</div>
+
+<script>
+function updateVisibility() {
+  const strategy = document.getElementById('strategy-select').value;
+  document.getElementById('group-file').style.display = strategy === 'file' ? 'block' : 'none';
+  document.getElementById('group-redis').style.display = strategy === 'redis' ? 'block' : 'none';
+  document.getElementById('group-kafka').style.display = strategy === 'kafka' ? 'block' : 'none';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const select = document.getElementById('strategy-select');
+  select.addEventListener('change', updateVisibility);
+  updateVisibility();
+});
+</script>
+</body>
+</html>

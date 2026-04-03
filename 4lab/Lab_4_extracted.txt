@@ -1,0 +1,169 @@
+Лабораторна
+ 
+4
+«
+Реалізація
+ 
+GoF-паттерну
+ 
+стратегія
+»
+Необхідно вичитати дані із отриманого згідно варіанту датасету
+ і записати їх в файл
+.
+ Потрібно застосувати шаблон проектування 
+с
+тратегія для виводу отриманих даних в різні 
+сховища. 
+Код
+, 
+який
+ 
+виводить
+ 
+рядки
+ в 
+консоль
+, 
+має
+ 
+бути
+ 
+відділений
+ 
+від
+ 
+коду
+, 
+що
+ 
+робить
+ 
+вичитку
+ 
+даних
+ з 
+файлу
+. 
+Код
+ 
+виводу
+ в 
+консоль
+ 
+має
+ 
+бути
+ 
+організований
+ з 
+використанням
+ 
+паттерну
+ 
+стратегія
+, і 
+дозволяти
+ 
+переключити
+ 
+вивід
+ з 
+консолі
+ 
+на
+ 
+запис
+ у 
+кафку
+ 
+та 
+Redis
+ з 
+мінімальними
+ 
+змінами
+ в 
+коді
+ (
+тобто
+ 
+без
+ 
+змін
+ в 
+самому
+ 
+коді
+, а 
+лише
+ з-
+за
+ 
+допомогою
+ 
+зміни
+ в 
+конфігураційних
+ 
+файлах
+).
+Варіанти
+1
+https://data.cityofnewyork.us/Health/Air-Quality-Testing-at-Saratoga-Village/dsyc-npkh
+2
+https://data.cityofnewyork.us/City-Government/Open-Parking-and-Camera-Violations/nc67-uf89
+3
+https://opendata.utah.gov/Education/graduate/459a-j6x3
+4
+https://www.dallasopendata.com/Public-Safety/Police-Incidents/qv6i-rri7
+5
+https://data.cityofnewyork.us/Public-Safety/Fire-Incident-Dispatch-Data/8m42-w767
+6
+https://opendata.utah.gov/Energy-Environment/Annual-All-Utah-Air-Quality-2013/s9t3-bccv
+7
+https://www.dallasopendata.com/City-Services/FY2020-Dallas-Animal-Shelter-Data/7h2m-3um5
+8
+https://opendata.utah.gov/Public-Safety/SALT-LAKE-CITY-POLICE-CASES-2016/trgz-4r9d
+9
+https://www.dallasopendata.com/Budget-Finance/Revenue-Budget/rtn4-pmj9
+10
+https://www.dallasopendata.com/Budget-Finance/CoD-Expenses-Budget-vs-Actual/nr4f-efb3
+11
+https://www.dallasopendata.com/Budget-Finance/Vendor-Payments/x5ih-idh7
+12
+https://www.dallasopendata.com/City-Services/FY-2017-Dallas-Animals-Field-Data/xy7j-y59g
+13
+https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
+14
+https://data.cityofnewyork.us/NYC-BigApps/NYPD-Motor-Vehicle-Collisions-Summary/m666-sf2m
+15
+https://data.cityofnewyork.us/Health/New-York-City-Leading-Causes-of-Death/jb7j-dtam
+16
+https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8
+17
+https://www.europeandataportal.eu/data/datasets/kpi-prifsma?locale=en
+18
+https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb
+19
+https://data.cityofnewyork.us/Public-Safety/Bureau-of-Fire-Prevention-Inspections/ssq6-fkht
+20
+https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
+21
+https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present-Dashboard/5cd6-ry5g
+22
+https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8
+23
+https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present-Dashboard/5cd6-ry5g
+24
+https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6
+25
+https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e
+26
+https://data.cityofnewyork.us/City-Government/Parking-Violations-Issued-Fiscal-Year-2019/pvqr-7yc4
+27
+https://data.cityofnewyork.us/Transportation/2015-Yellow-Taxi-Trip-Data/ba8s-jw6u
+28
+https://catalog.data.gov/dataset/ncdc-storm-events-database
+29
+https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8
