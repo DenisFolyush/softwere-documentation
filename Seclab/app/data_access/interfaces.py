@@ -15,3 +15,8 @@ class IDataAccess(ABC):
     def save_tickets(self, tickets: List[object]) -> None:
         """Persist a list of ticket-like objects into the database."""
         pass
+
+    @abstractmethod
+    def get_all_tickets(self) -> List[object]:
+        """Return all persisted tickets from the database."""
+        pass

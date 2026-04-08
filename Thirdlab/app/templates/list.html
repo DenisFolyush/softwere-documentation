@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>All tickets</h1>
-<a href="{{ url_for('create') }}">Add new ticket</a>
+<a href="{{ url_for('create') }}">Add new ticket</a> |
+<a href="{{ url_for('lab4_strategy') }}">Lab 4 output strategy</a>
 <ul>
 {% for t in tickets %}
   <li>
